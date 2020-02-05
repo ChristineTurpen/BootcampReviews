@@ -28,6 +28,12 @@ class BootcampsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy
+    @bootcamp = Bootcamp.find(params[:id])
+    @bootcamp.destroy
+    redirect_to root_path
+  end
+
   private
 
   def bootcamp_params
