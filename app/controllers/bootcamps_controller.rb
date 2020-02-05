@@ -1,5 +1,5 @@
 class BootcampsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   
   def index
     @bootcamps = Bootcamp.all
@@ -20,10 +20,19 @@ class BootcampsController < ApplicationController
 
   def edit
     @bootcamp = Bootcamp.find(params[:id])
+
+
+    if @bootcamp.user != current_user
+      return render plain: 'Not Allowed', status: :forbidden
+    end
   end
 
   def update
     @bootcamp = Bootcamp.find(params[:id])
+    if @place.user != current_user
+      return render plain: 'Not Allowed', status: :forbidden
+    end
+    
     @bootcamp.update_attributes(bootcamp_params)
     redirect_to root_path
   end
