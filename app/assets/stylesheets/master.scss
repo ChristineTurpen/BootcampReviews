@@ -32,3 +32,10 @@ body {
   color: #4d4d4d;
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
+
+.invalid-feedback {
+  color: #ff3333;
+  background-color: #FFEEEE;
+  border-radius: 3px;
+  padding: 2px 8px 2px 8px;
+}

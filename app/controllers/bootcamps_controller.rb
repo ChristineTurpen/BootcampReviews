@@ -10,8 +10,12 @@ class BootcampsController < ApplicationController
   end
 
   def create
-    current_user.bootcamps.create(bootcamp_params)
-    redirect_to root_path
+    @bootcamp = current_user.bootcamps.create(bootcamp_params)
+    if @bootcamp.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -34,7 +38,11 @@ class BootcampsController < ApplicationController
     end
 
     @bootcamp.update_attributes(bootcamp_params)
-    redirect_to root_path
+    if @bootcamp.valid?
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
