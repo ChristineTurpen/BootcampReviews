@@ -18,6 +18,16 @@ class BootcampsController < ApplicationController
     @bootcamp = Bootcamp.find(params[:id])
   end
 
+  def edit
+    @bootcamp = Bootcamp.find(params[:id])
+  end
+
+  def update
+    @bootcamp = Bootcamp.find(params[:id])
+    @bootcamp.update_attributes(bootcamp_params)
+    redirect_to root_path
+  end
+
   private
 
   def bootcamp_params
