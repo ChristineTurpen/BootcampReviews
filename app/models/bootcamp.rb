@@ -1,4 +1,6 @@
 class Bootcamp < ApplicationRecord
   belongs_to :user
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 3 }
+  validates :university, presence: true
+  validates :description, presence: true
 end
