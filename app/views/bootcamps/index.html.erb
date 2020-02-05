@@ -3,6 +3,9 @@
     <h1><%= bootcamp.name %></h1>
     <i><%= bootcamp.university %></i><br /><br />
     <p><%= bootcamp.description %></p><br />
+  
+    <% if bootcamp.user.present? %>
+      <small><%= bootcamp.user.email %></small>
+    <% end %>
   </div>
-
 <% end %>
