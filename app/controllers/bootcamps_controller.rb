@@ -14,6 +14,10 @@ class BootcampsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @bootcamp = Bootcamp.find(params[:id])
+  end
+
   private
 
   def bootcamp_params
