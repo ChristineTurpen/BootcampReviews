@@ -15,12 +15,12 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Bootcamp Reviews</a>
-
+  <%= link_to 'Bootcamp Reviews', root_path, class: 'navbar-brand' %>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-md-0">
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
+        <%= link_to 'New Bootcamp', new_bootcamp_path, class: 'nav-link' %>
       </li>
     </ul>
   </div>

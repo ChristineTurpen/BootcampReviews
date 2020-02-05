@@ -8,4 +8,15 @@ class BootcampsController < ApplicationController
     @bootcamp = Bootcamp.new
   end
 
+  def create
+    Bootcamp.create(bootcamp_params)
+    redirect_to root_path
+  end
+
+  private
+
+  def bootcamp_params
+    params.require(:bootcamp).permit(:name, :description, :university)
+  end
+
 end
