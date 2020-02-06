@@ -1,7 +1,7 @@
 <% @bootcamps.each do |bootcamp| %>
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to bootcamp.name, bootcamp_path(bootcamp) %></h1><br />
-    <i><%= bootcamp.address %></i><br /><br />
+    <i><%= bootcamp.university %></i><br /><br />
     <p><%= bootcamp.description %></p><br />
   
     <% if bootcamp.user.present? %>

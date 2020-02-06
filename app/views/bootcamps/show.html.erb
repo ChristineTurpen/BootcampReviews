@@ -1,8 +1,50 @@
 <div class="booyah-box col-10 offset-1">
 <h1><%= @bootcamp.name%></h1>
-<i><%= @bootcamp.address %></i>
+<i><%= @bootcamp.university %></i>
 <br/><br/>
 <p><%= @bootcamp.description %></p>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  </head>
+  <body>
+  <div id="map"></div>
+  
+  <% if @bootcamp.latitude.present? && @bootcamp.longitude.present? %>
+
+  <script>
+
+    function initMap() {
+      var myLatLng = {lat: <%= @bootcamp.latitude %>, lng: <%= @bootcamp.longitude %>};
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: myLatLng
+      });
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Hello World!'
+      });
+    }
+  </script>
+
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjX0JKQnlHAaWMXHkmSGnl-urFp4SQkXg&callback=initMap">
+  </script>
+
+  <div id="map"></div>
+
+  <% end %>
+
+  <br />
+
 <div class="float-right">
   <% if current_user && current_user == @bootcamp.user %>
   <%= link_to 'Edit', edit_bootcamp_path(@bootcamp), class: 'btn btn-primary' %>

@@ -58,7 +58,7 @@ class BootcampsController < ApplicationController
   private
 
   def bootcamp_params
-    params.require(:bootcamp).permit(:name, :description, :address)
+    params.require(:bootcamp).permit(:name, :description, :university)
   end
 
 end
